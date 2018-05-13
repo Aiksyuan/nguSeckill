@@ -22,8 +22,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/applicationContext-dao.xml", "classpath:spring/applicationContext-service.xml"})
 public class SeckillServiceImplTest {
-    private Logger logger = LoggerFactory.getLogger(this.getClass()); 
-
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private SeckillService seckillService; 
 

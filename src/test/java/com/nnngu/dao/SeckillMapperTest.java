@@ -32,7 +32,7 @@ public class SeckillMapperTest {
 
     @Test
     public void queryById() throws Exception {
-        long seckillId = 1000;
+        long seckillId = 4;
         Seckill seckill = seckillMapper.queryById(seckillId);
         System.out.print(seckill.toString());
     }
@@ -45,4 +45,23 @@ public class SeckillMapperTest {
         }
     }
 
+    @Test
+    public void updateById() {
+        Seckill record = seckillMapper.queryById(5L);
+        record.setName("大白菜");
+        Integer integer = seckillMapper.updateById(record);
+        System.out.println(integer);
+    }
+
+    @Test
+    public void saveSeckill() {
+        Seckill record = new Seckill();
+        record.setName("小白菜");
+        record.setNumber(10);
+        record.setStartTime(new Date());
+        record.setEndTime(new Date());
+        record.setCreateTime(new Date());
+        Integer integer = seckillMapper.saveSeckill(record);
+        System.out.println(integer);
+    }
 }

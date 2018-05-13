@@ -21,11 +21,35 @@
         AND number > 0
     </update>
 
-    <select id="queryById" resultType="com.nnngu.entity.Seckill">
+    <select id="queryById" resultType="com.nnngu.entity.Seckill" >
+       SELECT  *
+       FROM seckill AS s
+       WHERE s.seckill_Id=#{seckillId}
+    </select>
+
+    <update id="updateById" parameterType="com.nnngu.entity.Seckill">
+        UPDATE seckill
+        AS s
+        SET s.name=#{seckill.name},s.number=#{seckill.number},s.start_time=#{seckill.startTime}
+        where s.seckill_id=#{seckill.seckillId}
+    </update>
+
+    <insert id="saveSeckill" parameterType="Seckill" useGeneratedKeys="true" keyColumn="seckill_id" keyProperty="seckillId">
+        INSERT INTO seckill (seckill_id,name,number,start_time,end_time,create_time)
+        VALUES (null,
+        #{seckill.name},
+       #{seckill.number},
+        #{seckill.startTime},
+        #{seckill.endTime},
+        #{seckill.createTime})
+
+    </insert>
+
+   <!-- <select id="queryById" resultType="com.nnngu.entity.Seckill">
         SELECT *
         FROM seckill AS s
         WHERE s.seckill_id = #{seckillId}
-    </select>
+    </select>-->
 
     <!--s.seckill_id,-->
     <!--s.name,-->

@@ -25,6 +25,8 @@ public interface SeckillMapper {
      */
     Seckill queryById(@Param("seckillId") long seckillId);
 
+
+
     /**
      * 根据一个偏移量去查询秒杀的商品列表.
      *
@@ -40,4 +42,20 @@ public interface SeckillMapper {
      * @param paramMap
      */
     void killByProcedure(Map<String, Object> paramMap);
+
+
+    /**
+     *
+     * @param seckill
+     * @return
+     */
+    Integer saveSeckill(@Param("seckill") Seckill seckill);
+
+    /**
+     *
+     * @param seckill
+     * @return
+     */
+    Integer updateById(@Param("seckill") Seckill seckill);
+
 }
